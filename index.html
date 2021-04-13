@@ -9,11 +9,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>Bate-Papo UOL</title>
+    <script type="module"src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
 </head>
 <body>
     <div class="topo">
         <img src="imagens/logo.png" alt="">
-        <img src="imagens/usuarios.png" alt="">
+        <ion-icon name="people"></ion-icon>
     </div>
     <ul class="container-mensagens">
         <li class="red">dsssdasadsadadsasd</li>
@@ -25,7 +26,39 @@
         <img src="imagens/enviar.png" alt="">
     </div>
     <div class="aba-usuarios">
-        
+        <div class="sidebar">
+            <div class="instrucoes">Escolha um contato pra enviar mensagem:</div>
+            <div class="container-usuarios">
+                <div>
+                    <ion-icon name="people"></ion-icon>
+                    <p>Todos</p>
+                    <ion-icon class= "check" name="checkmark-outline"></ion-icon>
+                </div>
+                <div>
+                    <ion-icon name="person-circle"></ion-icon>
+                    <p>João</p>
+                    <ion-icon class= "check" name="checkmark-outline"></ion-icon>
+                </div>
+                <div>
+                    <ion-icon name="person-circle"></ion-icon>
+                    <p>Maria</p>
+                    <ion-icon class= "check" name="checkmark-outline"></ion-icon>
+                </div>
+            </div>
+            <div class="instrucoes">Escolha a visibilidade:</div>
+            <div class="container-visibilidade">
+                <div>
+                   <ion-icon name="lock-closed"></ion-icon>
+                    <p>Público</p>
+                    <ion-icon class= "check" name="checkmark-outline"></ion-icon>
+                </div>
+                <div>
+                    <ion-icon name="lock-closed"></ion-icon>
+                    <p>Reservadamente</p>
+                    <ion-icon class= "check" name="checkmark-outline"></ion-icon>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

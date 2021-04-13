@@ -3,8 +3,10 @@ body{
     overflow-x: hidden;
     font-family: 'Roboto', sans-serif;
     font-weight: normal;
-    line-height: 20px;
     color: black;
+}
+::-webkit-scrollbar {
+    display: none; /* Continua scrollando no desktop e celular, mas o scroll não aparece  */        
 }
 .topo{
     height: 80px;
@@ -35,13 +37,14 @@ body{
     height: 30px;
     font-size: 18px;
     border: none;
+    outline: none;
 }
-.footer img{
-    height: 26px;
-    width: 26px;
+.footer ion-icon{
+    font-size: 36px;
 }
-.topo img{
+.topo img,ion-icon{
     margin: 0 20px;
+    font-size: 36px;
 }
 .container-mensagens{
     display: flex;
@@ -67,4 +70,84 @@ li{
     
 }.white{
     background: #FFFFFF;
+}
+
+.aba-usuarios{
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+.sidebar{
+    width: 69%;
+    height: 100%;
+    background: #FFFFFF;
+    float: right;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.sidebar .instrucoes{
+    width: 55%;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 19px;
+    margin-top: 25px 
+}
+.sidebar .container-usuarios{
+    height: 150px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+}
+.sidebar .container-visibilidade{
+    height: 150px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+}
+.container-usuarios>div{
+    display: flex;
+    margin-top: 10px;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+}
+.container-visibilidade>div{
+    display: flex;
+    margin-top: 10px;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+}
+
+.sidebar ion-icon{
+    font-size: 32px;
+}
+
+.sidebar .check{
+    font-size: 18px;
+    color: green;
+    position: absolute;
+    right:10px;
+    top: 10px;
+    opacity: 0;
+}
+.sidebar .selecionado .check{
+    font-size: 18px;
+    color: green;
+    position: absolute;
+    right:10px;
+    top: 10px;
+    opacity: 1;
+}
+.escondido{
+    display: none;
 }
