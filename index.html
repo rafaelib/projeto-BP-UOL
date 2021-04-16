@@ -11,26 +11,11 @@
     <title>Bate-Papo UOL</title>
 </head>
 <body>
-    <div class="tela-login escondido">
-        <div class="container-login">
-            <img class="logo-login" src="imagens/logo.png">
-            <div class="inicial">
-              <input class="input-login"type="text" placeholder="Digite seu nome">
-              <button onclick='fazerLogin()'>Entrar</button>
-            </div>
-            <div class="loading escondido">
-              <img src="imagens/loading.png">
-              Entrando...
-            </div>
-        </div>
-    </div>
     <div class="topo">
         <img src="imagens/logo.png" alt="">
-        <ion-icon name="people"></ion-icon>
+        <ion-icon onclick="habilitarAba()"name="people"></ion-icon>
     </div>
-    <ul class="chat">
-        
-    </ul>
+    <ul class="chat"></ul>
     <div class="footer">
         <input class="input-chat" type="text" placeholder="Enviar aqui...">
         <img onclick = "enviarMensagem()"src="imagens/enviar.png" alt="">
@@ -39,36 +24,23 @@
         <div class="sidebar">
             <div class="instrucoes">Escolha um contato pra enviar mensagem:</div>
             <div class="container-usuarios">
-                <div>
-                    <ion-icon name="people"></ion-icon>
-                    <p>Todos</p>
-                    <ion-icon class= "check" name="checkmark-outline"></ion-icon>
-                </div>
-                <div>
-                    <ion-icon name="person-circle"></ion-icon>
-                    <p>João</p>
-                    <ion-icon class= "check" name="checkmark-outline"></ion-icon>
-                </div>
-                <div>
-                    <ion-icon name="person-circle"></ion-icon>
-                    <p>Maria</p>
-                    <ion-icon class= "check" name="checkmark-outline"></ion-icon>
-                </div>
+                
             </div>
             <div class="instrucoes">Escolha a visibilidade:</div>
             <div class="container-visibilidade">
-                <div>
+                <div onclick="selecionarPrivacidade(this)">
                    <ion-icon name="lock-closed"></ion-icon>
                     <p>Público</p>
                     <ion-icon class= "check" name="checkmark-outline"></ion-icon>
                 </div>
-                <div>
+                <div onclick="selecionarPrivacidade(this)">
                     <ion-icon name="lock-closed"></ion-icon>
                     <p>Reservadamente</p>
                     <ion-icon class= "check" name="checkmark-outline"></ion-icon>
                 </div>
             </div>
         </div>
+        <div onclick="esconderAba()" class="fundo-aba-usuarios"></div>
     </div>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>

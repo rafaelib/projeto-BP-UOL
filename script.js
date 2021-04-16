@@ -1,4 +1,7 @@
 let username="";
+let contadorUsuarioSelecionado=0;
+let contadorPrivacidadeSelecionada=0;
+const inputEnviar = document.querySelector(".input-chat");
 
 entrarChat();
 
@@ -22,6 +25,7 @@ function aceitarLogin(){
     setInterval(atualizarMensagens, 3000);
     avisarServidor();
     setInterval(avisarServidor, 5000);
+    atualizarParticipantes();
 }
 
 function atualizarMensagens(){
@@ -53,7 +57,7 @@ function mostrarMensagens(resposta){
                 `;
             }
     }  
-    
+    rolarMensagens(); 
 }
 
 function avisarServidor(){
@@ -81,5 +85,64 @@ function enviarMensagem(){
 function resetarInput(inputEnviar){
     document.querySelector(".input-chat").value = "";
     inputEnviar.setAttribute("placeholder","");
+}
+
+function rolarMensagens(){
+    const ultimaMensagem = document.querySelector("li:last-child");
+    ultimaMensagem.scrollIntoView();
+}
+function habilitarAba(){
+    const abaUsuarios = document.querySelector(".aba-usuarios");
+    abaUsuarios.classList.remove("escondido");
+}
+function esconderAba(){
+    const abaUsuarios = document.querySelector(".aba-usuarios");
+    abaUsuarios.classList.add("escondido");
+}
+function selecionarUsuario(elementoUsuario){
+    const usuarioSelecionado = document.querySelector(".usuario-selecionado");
+    if(contadorUsuarioSelecionado===1){
+    usuarioSelecionado.classList.remove("usuario-selecionado");
+    contadorUsuarioSelecionado = 0;
+    }
+    elementoUsuario.classList.add("usuario-selecionado");
+    contadorUsuarioSelecionado++;
+}
+function selecionarPrivacidade(elementoPrivacidade){
+    const privacidadeSelecionada = document.querySelector(".privacidade-selecionada");
+    if(contadorPrivacidadeSelecionada===1){
+    privacidadeSelecionada.classList.remove("privacidade-selecionada");
+    contadorPrivacidadeSelecionada = 0;
+    }
+    elementoPrivacidade.classList.add("privacidade-selecionada");
+    contadorPrivacidadeSelecionada++;
+}
+
+function atualizarParticipantes() {
+    const promessa = axios.get("https://mock-api.bootcamp.respondeai.com.br/api/v2/uol/participants");
+    promessa.then(mostrarParticipantes);
+}
+
+function mostrarParticipantes(resposta) {
+    const participants = resposta.data;
+    
+    const listaParticipantes = document.querySelector(".container-usuarios");
+    listaParticipantes.innerHTML = `
+    <div onclick="selecionarUsuario(this)">
+        <ion-icon name="people"></ion-icon>
+        <p>Todos</p>
+        <ion-icon class= "check" name="checkmark-outline"></ion-icon>
+    </div>
+    `;
+    
+    for (let i = 0; i < participants.length; i++) {
+        listaParticipantes.innerHTML += `
+            <div onclick="selecionarUsuario(this)">
+                <ion-icon name="person-circle"></ion-icon>
+                <span>${participants[i].name}</span>
+                <ion-icon class= "check" name="checkmark-outline"></ion-icon>
+            </div>
+        `;
+    }
 }
 

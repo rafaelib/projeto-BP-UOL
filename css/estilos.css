@@ -9,35 +9,6 @@ body{
     display: none;        
 }
 
-.tela-login{
-    position: fixed;
-    top:0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    z-index: 1000;
-  }
-.container-login{
-    display: flex;
-    flex-direction: column;
-}
-.inicial{
-    display: flex;
-    flex-direction: column;
-    margin-top: 94px;
-}
-.inicial button{
-    margin-top: 15px;
-}
-.logo-login{
-    height: 92px;
-    width: 130px;
-    margin: 0 auto;
-    margin-top: 72px;
-}
 .topo{
     height: 80px;
     position: fixed;
@@ -117,7 +88,6 @@ span{
 }
 .aba-usuarios{
     height: 100vh;
-    background: rgba(0, 0, 0, 0.6);
     position: fixed;
     z-index: 1;
     left: 0;
@@ -133,6 +103,12 @@ span{
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.fundo-aba-usuarios{
+    width: 31%;
+    height: 100%;
+    float: left;
+    background: rgba(0, 0, 0, 0.6);
 }
 .sidebar .instrucoes{
     width: 55%;
@@ -155,6 +131,10 @@ span{
     display: flex;
     flex-direction: column;
     margin-top: 25px;
+}
+.container-usuarios{
+    height: 300px;
+    overflow-y: scroll;
 }
 .container-usuarios>div{
     display: flex;
@@ -183,12 +163,10 @@ span{
     top: 10px;
     opacity: 0;
 }
-.sidebar .selecionado .check{
-    font-size: 18px;
-    color: green;
-    position: absolute;
-    right:10px;
-    top: 10px;
+.sidebar .usuario-selecionado .check{
+    opacity: 1;
+}
+.sidebar .privacidade-selecionada .check{
     opacity: 1;
 }
 .escondido{
