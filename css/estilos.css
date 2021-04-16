@@ -6,7 +6,37 @@ body{
     color: black;
 }
 ::-webkit-scrollbar {
-    display: none; /* Continua scrollando no desktop e celular, mas o scroll não aparece  */        
+    display: none;        
+}
+
+.tela-login{
+    position: fixed;
+    top:0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+  }
+.container-login{
+    display: flex;
+    flex-direction: column;
+}
+.inicial{
+    display: flex;
+    flex-direction: column;
+    margin-top: 94px;
+}
+.inicial button{
+    margin-top: 15px;
+}
+.logo-login{
+    height: 92px;
+    width: 130px;
+    margin: 0 auto;
+    margin-top: 72px;
 }
 .topo{
     height: 80px;
@@ -32,12 +62,16 @@ body{
     justify-content: space-evenly;
     align-items: center;
 }
+::placeholder{
+    font-style: italic;
+}
 .footer input{
     width: 80%;
     height: 30px;
     font-size: 18px;
     border: none;
     outline: none;
+    font-style: normal;
 }
 .footer ion-icon{
     font-size: 36px;
@@ -46,13 +80,15 @@ body{
     margin: 0 20px;
     font-size: 36px;
 }
-.container-mensagens{
+.chat{
     display: flex;
     flex-direction: column;
     margin-top: 102px;
     background: #E5E5E5;
-    height: 380px;
+    height: auto;
+    margin-bottom: 80px;
     font-size: 14px;
+    overflow-y: scroll;
 }
 li{
     width: 100%;
@@ -61,17 +97,24 @@ li{
     margin-top: 4px;
     display: flex;
     align-items: center;
-}
-.red{
-    background: #FFDEDE;
-}
-.gray{
-    background: #DCDCDC;
-    
-}.white{
     background: #FFFFFF;
 }
-
+.privada{
+    background: #FFDEDE;
+}
+.movimentacao-sala{
+    background: #DCDCDC;
+}
+.tempo{
+    color: #AAA;
+}
+span{
+    margin-right: 4px;
+}
+.nome-usuarios{
+    font-weight: bold;
+    margin-left: 4px;
+}
 .aba-usuarios{
     height: 100vh;
     background: rgba(0, 0, 0, 0.6);
