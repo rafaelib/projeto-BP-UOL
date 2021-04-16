@@ -146,3 +146,6 @@ function mostrarParticipantes(resposta) {
     }
 }
 
+inputEnviar.addEventListener('keydown', (e)=>{
+    if (e.key === 'Enter') enviarMensagem();
+  });
