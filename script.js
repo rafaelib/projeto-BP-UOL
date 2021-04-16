@@ -63,3 +63,23 @@ function avisarServidor(){
 function recarregarPagina(){
     window.location.reload();
 }
+function enviarMensagem(){
+    const inputEnviar = document.querySelector(".input-chat");
+    const textoInput = document.querySelector(".input-chat").value;
+    const mensagem = {
+        from: username,
+        to: "Todos",
+        text: textoInput,
+        type: "message"
+    }
+    const promessa = axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v2/uol/messages", mensagem);
+    promessa.then(atualizarMensagens);
+    promessa.catch(recarregarPagina);
+    resetarInput(inputEnviar);
+}
+
+function resetarInput(inputEnviar){
+    document.querySelector(".input-chat").value = "";
+    inputEnviar.setAttribute("placeholder","");
+}
+
